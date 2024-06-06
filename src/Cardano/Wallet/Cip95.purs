@@ -13,6 +13,7 @@ module Cardano.Wallet.Cip95
   , getRegisteredPubStakeKeys
   , getUnregisteredPubStakeKeys
   , signData
+  , signTx
   ) where
 
 import Prelude
@@ -74,6 +75,11 @@ getUnregisteredPubStakeKeys = toAffE <<< _getUnregisteredPubStakeKeys
 signData :: Api -> String -> Bytes -> Aff DataSignature
 signData api addrOrDrepId payload = toAffE (_signData api addrOrDrepId payload)
 
+-- | Request the wallet to inspect and provide appropriate witnesses
+-- | for the supplied transaction.
+signTx :: Api -> Cbor -> Boolean -> Aff Cbor
+signTx api tx isPartialSign = toAffE (_signTx api tx isPartialSign)
+
 ----------------------------------------------------------------------
 -- FFI
 
@@ -82,3 +88,4 @@ foreign import _getPubDrepKey :: Api -> Effect (Promise PubDrepKey)
 foreign import _getRegisteredPubStakeKeys :: Api -> Effect (Promise (Array PubStakeKey))
 foreign import _getUnregisteredPubStakeKeys :: Api -> Effect (Promise (Array PubStakeKey))
 foreign import _signData :: Api -> String -> Bytes -> Effect (Promise DataSignature)
+foreign import _signTx :: Api -> Cbor -> Boolean -> Effect (Promise Cbor)
