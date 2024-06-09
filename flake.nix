@@ -48,6 +48,8 @@
                 fd
                 git
                 nodejs-18_x
+                esbuild
+                python3
               ];
             };
           };
