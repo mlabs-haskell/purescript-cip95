@@ -7,7 +7,8 @@ export const _getPubDrepKey = api => () => api.cip95.getPubDRepKey();
 
 export const _getRegisteredPubStakeKeys = api => () => api.cip95.getRegisteredPubStakeKeys();
 
-export const _getUnregisteredPubStakeKeys = api => () => api.cip95.getRegisteredPubStakeKeys();
+export const _getUnregisteredPubStakeKeys = api => () =>
+  api.cip95.getUnregisteredPubStakeKeys();
 
 export const _signData = api => addrOrDrepId => payload => () =>
   api.cip95.signData(addrOrDrepId, payload);
