@@ -1,6 +1,13 @@
 { name = "cip95"
 , dependencies =
-  [ "aff", "aff-promise", "console", "effect", "newtype", "prelude" ]
+  [ "aff"
+  , "aff-promise"
+  , "cip30"
+  , "console"
+  , "effect"
+  , "newtype"
+  , "prelude"
+  ]
 , packages = ./packages.dhall
 , sources = [ "src/**/*.purs", "test/**/*.purs" ]
 }
