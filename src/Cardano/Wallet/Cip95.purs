@@ -4,7 +4,7 @@
 -- | This code works by inspecting the `window.cardano` object, which
 -- | should be injected by the wallet to the window.
 module Cardano.Wallet.Cip95
-  ( Api
+  ( module Cardano.Wallet.Cip30
   , PubDrepKey
   , PubStakeKey
   , WalletName
@@ -18,15 +18,13 @@ module Cardano.Wallet.Cip95
 
 import Prelude
 
+import Cardano.Wallet.Cip30 (Api)
 import Control.Promise (Promise, toAffE)
 import Effect (Effect)
 import Effect.Aff (Aff)
 
 ----------------------------------------------------------------------
 -- Data Types
-
--- | A datatype representing a CIP-95 connection object.
-foreign import data Api :: Type
 
 type WalletName = String
 
